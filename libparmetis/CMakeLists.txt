@@ -8,7 +8,8 @@ file(GLOB parmetis_sources *.c)
 add_library(parmetis ${ParMETIS_LIBRARY_TYPE} ${parmetis_sources})
 
 if(SHARED)
-  target_link_libraries(parmetis metis GKlib)
+  target_link_libraries(parmetis metis)
+  #target_link_libraries(parmetis metis GKlib)
 endif()
  
 install(TARGETS parmetis

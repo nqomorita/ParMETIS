@@ -9,7 +9,8 @@ add_executable(pm_dglpart dglpart.c)
 
 # Link with the required libraries 
 foreach(prog pm_ptest pm_mtest pm_parmetis pm_pometis pm_dglpart)
-  target_link_libraries(${prog} parmetis metis GKlib m)
+  target_link_libraries(${prog} parmetis metis m)
+  #target_link_libraries(${prog} parmetis metis GKlib m)
 endforeach(prog)
 
 install(TARGETS pm_ptest pm_mtest pm_parmetis pm_pometis pm_dglpart

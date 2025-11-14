@@ -30,7 +30,7 @@ include_directories(${CMAKE_INSTALL_PREFIX}/include)
 
 # List of paths that the compiler will search for library files.
 # i.e., the -L equivalent
-link_directories(${GKLIB_PATH}/lib)
+#link_directories(${GKLIB_PATH}/lib)
 link_directories(${METIS_PATH}/lib)
 link_directories(${CMAKE_INSTALL_PREFIX}/lib)
 

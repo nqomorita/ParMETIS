@@ -7,8 +7,8 @@ debug      = not-set
 openmp     = not-set
 shared     = not-set
 prefix     = ~/local
-gklib_path = ~/local
-metis_path = ~/local
+gklib_path = ../METIS/GKlib
+metis_path = ../METIS
 
 
 # Basically proxies everything to the builddir cmake.
@@ -55,7 +55,7 @@ endif
 
 define run-config
 mkdir -p $(BUILDDIR)
-cd $(BUILDDIR) && cmake $(CURDIR) $(CONFIG_FLAGS)
+cd $(BUILDDIR) && cmake $(CURDIR) $(CONFIG_FLAGS) -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 endef
 
 all clean install:
