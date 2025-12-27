@@ -24,14 +24,14 @@ include(./conf/gkbuild.cmake)
 # i.e., the -I equivalent
 include_directories(include)
 include_directories(${MPI_INCLUDE_PATH})
-include_directories(${GKLIB_PATH}/include)
-include_directories(${METIS_PATH}/include)
+include_directories(${GKLIB_PATH})
+include_directories(${METIS_PATH}/build/xinclude)
 include_directories(${CMAKE_INSTALL_PREFIX}/include)
 
 # List of paths that the compiler will search for library files.
 # i.e., the -L equivalent
-#link_directories(${GKLIB_PATH}/lib)
-link_directories(${METIS_PATH}/lib)
+#link_directories(${GKLIB_PATH})
+link_directories(${METIS_PATH}/build/libmetis)
 link_directories(${CMAKE_INSTALL_PREFIX}/lib)
 
 # List of directories that cmake will look for CMakeLists.txt
