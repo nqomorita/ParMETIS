@@ -32,7 +32,10 @@ if(CMAKE_COMPILER_IS_GNUCC)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "power|ppc|powerpc|ppc64|powerpc64" OR (APPLE AND CMAKE_OSX_ARCHITECTURES MATCHES "ppc|ppc64"))
   set(GK_COPTIONS "${GK_COPTIONS} -mtune=native")
 else()
-  set(GK_COPTIONS "${GK_COPTIONS} -march=native")
+  # NOTE: 上流は -march=native だが、ビルド環境と実行環境の CPU が異なると
+  #       AVX-512 等の命令で SIGILL (Illegal instruction) になるため、
+  #       可搬な命令セットに固定する。
+  set(GK_COPTIONS "${GK_COPTIONS} -march=x86-64 -mtune=generic")
 endif()
   if(NOT MINGW)
       set(GK_COPTIONS "${GK_COPTIONS} -fPIC")
